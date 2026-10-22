@@ -1,15 +1,15 @@
 {
   "catalog_version": "1",
-  "updated_at": "2026-10-22T20:03:30.529Z",
+  "updated_at": "2026-10-22T20:47:14.324Z",
   "items": [
     {
       "id": "6a9776e672",
       "type": "movie",
-      "title": "Artemis I Launch: Liftoff to the Moon",
-      "category": "Missions",
+      "title": "Artemis I Launch: Countdown to Liftoff",
+      "category": "Space Launches",
       "genres": [
-        "Space",
         "Science",
+        "Space",
         "Documentary"
       ],
       "trending": true,
@@ -19,7 +19,7 @@
       "release_year": 2026,
       "duration_sec": 60,
       "images": {
-        "poster_16x9": "https://netocondeantonio-commits.github.io/ownchannel/c/starlight-science-club/6a9776e672-1.jpg"
+        "poster_16x9": "https://netocondeantonio-commits.github.io/ownchannel/c/starlight-science-club/6a9776e672-2.jpg"
       },
       "sources": [
         {
@@ -27,17 +27,17 @@
           "url": "https://images-assets.nasa.gov/video/A1Launch/A1Launch~medium.mp4"
         }
       ],
-      "description": "Watch the Artemis I rocket lift off from its launch pad at night as a crowd counts down on a large display. Follow the bright flame as the rocket climbs into the dark sky on its mission toward the Moon."
+      "description": "Watch the final seconds of the countdown as spectators gather under a night sky at the launch site, then see the rocket lift off in a bright plume of flame. This is the Artemis I launch, the uncrewed mission that sent NASA's Space Launch System rocket toward the Moon."
     },
     {
       "id": "9ceccd890a",
       "type": "movie",
       "title": "Soyuz MS-25 Landing Highlights",
-      "category": "Missions",
+      "category": "Space Missions",
       "genres": [
-        "Space",
         "Documentary",
-        "Education"
+        "Science",
+        "Space"
       ],
       "trending": true,
       "rating_count": 0,
@@ -46,7 +46,7 @@
       "release_year": 2026,
       "duration_sec": 1217,
       "images": {
-        "poster_16x9": "https://netocondeantonio-commits.github.io/ownchannel/c/starlight-science-club/9ceccd890a-1.jpg"
+        "poster_16x9": "https://netocondeantonio-commits.github.io/ownchannel/c/starlight-science-club/9ceccd890a-2.jpg"
       },
       "sources": [
         {
@@ -54,17 +54,17 @@
           "url": "https://images-assets.nasa.gov/video/jsc2024m000163_Soyuz_MS-25_Landing_Highlights/jsc2024m000163_Soyuz_MS-25_Landing_Highlights~medium.mp4"
         }
       ],
-      "description": "Watch highlights from the Soyuz MS-25 crew's return to Earth after their stay on the International Space Station. The clips show the crew's reunion with ground teams and a view of the spacecraft's approach to the station during the mission."
+      "description": "Highlights from the landing of the Soyuz MS-25 crew after their mission to the International Space Station. Frames show crew members in Soyuz spacesuits being helped out after touchdown, along with a view of the station during the approach."
     },
     {
       "id": "df3e54875d",
       "type": "movie",
       "title": "Webb Telescope Alignment Briefing",
-      "category": "Missions",
+      "category": "Space Missions",
       "genres": [
         "Science",
-        "Space",
-        "Education"
+        "Documentary",
+        "Space"
       ],
       "trending": true,
       "rating_count": 0,
@@ -73,7 +73,7 @@
       "release_year": 2026,
       "duration_sec": 3241,
       "images": {
-        "poster_16x9": "https://netocondeantonio-commits.github.io/ownchannel/c/starlight-science-club/df3e54875d-1.jpg"
+        "poster_16x9": "https://netocondeantonio-commits.github.io/ownchannel/c/starlight-science-club/df3e54875d-0.jpg"
       },
       "sources": [
         {
@@ -81,17 +81,17 @@
           "url": "https://images-assets.nasa.gov/video/GSFC_20220315_Webb_Alignment_Briefing/GSFC_20220315_Webb_Alignment_Briefing~medium.mp4"
         }
       ],
-      "description": "A panel of NASA experts gathers in front of a James Webb Space Telescope backdrop to discuss the telescope's alignment work. Viewers get a behind-the-scenes look at how the mirrors are lined up before Webb begins looking at the distant universe."
+      "description": "A panel of NASA experts in front of a James Webb Space Telescope backdrop discusses the telescope's mirror alignment process. Viewers get an inside look at the briefing on how the observatory's optics were prepared for science."
     },
     {
       "id": "aee8a49b97",
       "type": "movie",
-      "title": "Apollo Launch Day at Kennedy Space Center",
-      "category": "Missions",
+      "title": "Apollo Mission Highlights from Kennedy Space Center",
+      "category": "Space Missions",
       "genres": [
-        "Space History",
         "Documentary",
-        "Educational"
+        "Space",
+        "History"
       ],
       "trending": false,
       "rating_count": 0,
@@ -108,17 +108,17 @@
           "url": "https://images-assets.nasa.gov/video/ksc_080504_apollo/ksc_080504_apollo~mobile.mp4"
         }
       ],
-      "description": "Watch crowds gather to see an Apollo mission at Kennedy Space Center, then catch a glimpse of the lunar surface up close. This video blends launch-day spectators with a view of the Moon's rugged ground and dark shadows."
+      "description": "Footage connected to the Apollo program, filmed at Kennedy Space Center, shows crowds gathered outdoors and a close view of the lunar surface. Viewers get a glimpse of the Apollo era from both the launch area and the Moon."
     },
     {
       "id": "389b84893a",
       "type": "movie",
       "title": "Hurricane Drought: Storm Tracks 2003–2011",
-      "category": "Earth & Weather",
+      "category": "Hurricanes",
       "genres": [
         "Science",
-        "Documentary",
-        "Weather"
+        "Weather",
+        "Documentary"
       ],
       "trending": false,
       "rating_count": 0,
@@ -127,7 +127,7 @@
       "release_year": 2026,
       "duration_sec": 116,
       "images": {
-        "poster_16x9": "https://netocondeantonio-commits.github.io/ownchannel/c/starlight-science-club/389b84893a-1.jpg"
+        "poster_16x9": "https://netocondeantonio-commits.github.io/ownchannel/c/starlight-science-club/389b84893a-0.jpg"
       },
       "sources": [
         {
@@ -135,7 +135,7 @@
           "url": "https://images-assets.nasa.gov/video/GSFC_20160527_Hurricanes_m12251_HurricaneDrought/GSFC_20160527_Hurricanes_m12251_HurricaneDrought~medium.mp4"
         }
       ],
-      "description": "A time-lapse map shows Atlantic hurricane tracks year by year, with the storms of each season drawn over North America and the ocean. Watch how the number of storms changed across the years, including the quiet 2003 season, and learn what scientists call a \"hurricane drought.\""
+      "description": "Animated maps show Atlantic hurricane tracks year by year, from 2003 through 2011. The highlighted storms and the quieter seasons show how activity varied during the period known as the hurricane drought."
     }
   ]
 }
