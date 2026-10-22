@@ -3,6 +3,6 @@
 export const channel = {
   name: "Starlight Science Club",
   tagline: "",
-  catalogUrl: "http://172.26.176.1:4310/c/starlight-science-club/catalog.json",
+  catalogUrl: "https://netocondeantonio-commits.github.io/ownchannel/c/starlight-science-club/catalog.json",
   primary: "#ff7a00"
 };

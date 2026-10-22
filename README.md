@@ -54,6 +54,8 @@ yarn build:vega  # Vega OS (see TEMPLATE_README.md for the Vega SDK and simulato
 
 `PUBLIC_BASE_URL` sets the address the TV uses to download the catalog and posters. Default: this machine's LAN IP and port 4310.
 
+The output in `studio/public/c/<slug>/` is static, so any static host serves it. The demo channel lives on GitHub Pages (branch `gh-pages`): [catalog.json](https://netocondeantonio-commits.github.io/ownchannel/c/starlight-science-club/catalog.json). To publish your own, start the studio with `PUBLIC_BASE_URL=https://<user>.github.io/<repo>`, build the channel, and copy `studio/public/c/<slug>/` to `c/<slug>/` on that branch.
+
 Running the Vega SDK and the Vega Virtual Device on Windows: `scripts/setup-vega-wsl.sh` (WSL2 Ubuntu 24.04, unofficial).
 
 ## Tests
