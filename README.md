@@ -17,8 +17,8 @@ Built for *Build, Ship, Shape: Amazon Developer Hackathon 2026*, Fire TV track.
 ```
 creator's MP4 links ──> OwnChannel Studio (studio/)
                           ├─ ffprobe: duration
-                          ├─ ffmpeg: 3 frames per video -> 16:9 poster
-                          ├─ Claude (vision): title, description, row, genres, rating
+                          ├─ ffmpeg: 3 frames per video
+                          ├─ Claude (vision): title, description, row, genres, rating, best frame as poster
                           └─ writes c/<channel>/catalog.json + channel.json
                                          │
 node studio/brand.mjs <channel> ─────────┤ name + brand color -> packages/shared-ui/src/channel.ts
