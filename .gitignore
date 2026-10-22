@@ -24,3 +24,7 @@ yarn-error.log
 .DS_Store
 
 
+
+# OwnChannel Studio
+studio/.env
+studio/public/c/

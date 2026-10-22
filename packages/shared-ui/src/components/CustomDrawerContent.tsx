@@ -1,6 +1,6 @@
 import { scaledPixels } from '../hooks/useScale';
 import { DrawerContentComponentProps, DrawerContentScrollView } from '@react-navigation/drawer';
-import { View, StyleSheet, Image, Platform, Text } from 'react-native';
+import { View, StyleSheet, Platform, Text } from 'react-native';
 import { DefaultFocus, SpatialNavigationFocusableView, SpatialNavigationRoot } from 'react-tv-space-navigation';
 import { DrawerParamList } from '../navigation/types';
 import { useMenuContext } from '../components/MenuContext';
@@ -8,6 +8,15 @@ import { safeZones, colors } from '../theme';
 import { useCallback } from 'react';
 import { Direction } from '@bam.tech/lrud';
 import { getCloseDrawerDirection } from '../utils/rtl';
+import { channel } from '../channel';
+
+// Channel monogram in the brand color stands in for a logo
+const initials = channel.name
+  .split(/\s+/)
+  .filter(Boolean)
+  .slice(0, 2)
+  .map(word => word[0].toUpperCase())
+  .join('');
 
 export default function CustomDrawerContent(props: DrawerContentComponentProps) {
   const navigation = props.navigation;
@@ -43,9 +52,11 @@ export default function CustomDrawerContent(props: DrawerContentComponentProps) 
           }}
         >
           <View style={styles.header}>
-            <Image source={require('../assets/images/logo.png')} style={styles.profilePic} />
-            <Text style={styles.userName}>Pioneer Tom</Text>
-            <Text style={styles.switchAccount}>Switch account</Text>
+            <View style={styles.logoBadge}>
+              <Text style={styles.logoInitials}>{initials}</Text>
+            </View>
+            <Text style={styles.userName}>{channel.name}</Text>
+            <Text style={styles.switchAccount}>{channel.tagline}</Text>
           </View>
           {drawerItems.map((item, index) =>
             index === 0 ? (
@@ -109,16 +120,40 @@ export default function CustomDrawerContent(props: DrawerContentComponentProps) 
 const drawerStyles = StyleSheet.create({
     drawerContainer: {
       flex: 1,
-      backgroundColor: 'rgba(0, 0, 0, 0.75)',
+      // Near-opaque: without a real backdrop blur, see-through text behind the menu reads as clutter
+      backgroundColor: 'rgba(10, 10, 16, 0.95)',
+      borderEndWidth: scaledPixels(2),
+      borderEndColor: colors.glassBorder,
     },
+    // Faint brand tint over the glass (8-digit hex: ~8% alpha)
     scrimOverlay: {
       position: 'absolute',
       top: 0,
       left: 0,
       right: 0,
       bottom: 0,
-      backgroundColor: 'rgba(0, 0, 0, 0.6)',
-      opacity: 0.9,
+      backgroundColor: `${colors.primary}14`,
+    },
+    logoBadge: {
+      width: scaledPixels(160),
+      height: scaledPixels(160),
+      borderRadius: scaledPixels(40),
+      backgroundColor: colors.primary,
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderWidth: scaledPixels(3),
+      borderColor: 'rgba(255, 255, 255, 0.35)',
+      shadowColor: colors.primary,
+      shadowOffset: { width: 0, height: 0 },
+      shadowOpacity: 0.7,
+      shadowRadius: scaledPixels(24),
+      elevation: 12,
+    },
+    logoInitials: {
+      color: '#FFFFFF',
+      fontSize: scaledPixels(64),
+      fontWeight: '800',
+      letterSpacing: scaledPixels(2),
     },
     container: {
       flex: 1,
@@ -171,10 +206,10 @@ const drawerStyles = StyleSheet.create({
       borderColor: 'transparent',
     },
     menuItemFocused: {
-      backgroundColor: colors.focusBackground,
-      borderColor: colors.focusBorder,
+      backgroundColor: colors.primary,
+      borderColor: 'rgba(255, 255, 255, 0.85)',
       transform: [{ scale: 1.05 }],
-      shadowColor: colors.focus,
+      shadowColor: colors.primary,
       shadowOffset: {
         width: 0,
         height: 0,
@@ -194,8 +229,8 @@ const drawerStyles = StyleSheet.create({
       fontWeight: '500',
     },
     menuTextFocused: {
-      color: colors.textOnPrimary,
-      fontWeight: '600',
+      color: '#FFFFFF',
+      fontWeight: '700',
     },
     footer: {
       paddingHorizontal: scaledPixels(16),
@@ -216,10 +251,10 @@ const drawerStyles = StyleSheet.create({
       borderColor: 'transparent',
     },
     settingsButtonFocused: {
-      backgroundColor: colors.focusBackground,
-      borderColor: colors.focusBorder,
+      backgroundColor: colors.primary,
+      borderColor: 'rgba(255, 255, 255, 0.85)',
       transform: [{ scale: 1.05 }],
-      shadowColor: colors.focus,
+      shadowColor: colors.primary,
       shadowOffset: {
         width: 0,
         height: 0,
@@ -239,6 +274,6 @@ const drawerStyles = StyleSheet.create({
       color: colors.text,
     },
     cogIconTextFocused: {
-      color: colors.textOnPrimary,
+      color: '#FFFFFF',
     },
   });

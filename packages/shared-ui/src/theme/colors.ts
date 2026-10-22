@@ -1,6 +1,8 @@
+import { channel } from '../channel';
+
 export const colors = {
   // Primary colors
-  primary: '#007AFF',
+  primary: channel.primary,
   secondary: '#5856D6',
 
   // Backgrounds
@@ -38,6 +40,11 @@ export const colors = {
   // Interactive states
   pressedOverlay: 'rgba(255, 255, 255, 0.1)',
   hoverOverlay: 'rgba(255, 255, 255, 0.08)',
+
+  // Glass surfaces: translucent panels without blur (backdrop blur is too costly on TV GPUs)
+  glass: 'rgba(18, 18, 28, 0.55)',
+  glassStrong: 'rgba(12, 12, 20, 0.8)',
+  glassBorder: 'rgba(255, 255, 255, 0.14)',
 
   // Scrim and overlays
   scrimLight: 'rgba(0, 0, 0, 0.4)',

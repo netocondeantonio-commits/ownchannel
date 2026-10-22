@@ -1,3 +1,5 @@
+import { channel } from '../channel';
+
 // Catalog API types
 export type CatalogItem = {
   id: string;
@@ -44,7 +46,7 @@ export type CardData = {
   trending?: boolean;
 };
 
-const CATALOG_URL = 'https://giolaq.github.io/scrap-tv-feed/catalog.json';
+const CATALOG_URL = channel.catalogUrl;
 
 // Transform catalog item to CardData format
 export const transformCatalogItem = (item: CatalogItem): CardData => {
@@ -80,6 +82,20 @@ export const fetchMoviesData = async (): Promise<CardData[]> => {
     console.error('Failed to fetch movies catalog:', error);
     throw error;
   }
+};
+
+// Home rows: "Featured" (trending items) first, then one row per catalog category in first-seen order
+export const groupByCategory = (items: CardData[]): Array<{ title: string; items: CardData[] }> => {
+  const byCategory = new Map<string, CardData[]>();
+  for (const item of items) {
+    const key = item.category || 'Videos';
+    byCategory.set(key, [...(byCategory.get(key) ?? []), item]);
+  }
+  const featured = items.filter(item => item.trending);
+  return [
+    ...(featured.length ? [{ title: 'Featured', items: featured }] : []),
+    ...[...byCategory].map(([title, rowItems]) => ({ title, items: rowItems })),
+  ];
 };
 
 // Empty array as placeholder - movies will be fetched dynamically

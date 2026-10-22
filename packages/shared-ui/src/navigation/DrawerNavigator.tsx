@@ -108,7 +108,7 @@ export default function DrawerNavigator() {
 const drawerStyles = StyleSheet.create({
     drawerStyle: {
       width: scaledPixels(300),
-      backgroundColor: '#2c3e50',
+      backgroundColor: 'transparent',
       paddingTop: scaledPixels(0),
     },
     drawerLabelStyle: {
