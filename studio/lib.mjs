@@ -78,6 +78,9 @@ export const grabFrame = (url, atSec, outPath) =>
     { timeout: 120_000 },
   );
 
+// Which grabbed frame becomes the poster: Claude's pick, else the middle one.
+export const posterFrame = meta => ([0, 1, 2].includes(meta?.poster_frame) ? meta.poster_frame : 1);
+
 // Fallback metadata when there is no API key: title from the file name.
 export const metaFromFileName = url => {
   const file = decodeURIComponent(new URL(url).pathname.split('/').pop() || 'Video').replace(/\.[a-z0-9]+$/i, '');
@@ -103,8 +106,13 @@ const META_TOOL = {
       },
       genres: { type: 'array', items: { type: 'string' }, maxItems: 3 },
       content_rating: { type: 'string', enum: CONTENT_RATINGS },
+      poster_frame: {
+        type: 'integer',
+        enum: [0, 1, 2],
+        description: 'Index of the frame that makes the best TV poster: bright, sharp and showing the subject. Never a black, blurry or text-only frame.',
+      },
     },
-    required: ['title', 'description', 'category', 'genres', 'content_rating'],
+    required: ['title', 'description', 'category', 'genres', 'content_rating', 'poster_frame'],
   },
 };
 

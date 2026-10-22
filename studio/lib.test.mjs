@@ -1,6 +1,12 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { MAX_VIDEOS, metaFromFileName, parseChannelRequest, parseVideoUrl, slugify, toCatalogItem } from './lib.mjs';
+import { MAX_VIDEOS, metaFromFileName, parseChannelRequest, parseVideoUrl, posterFrame, slugify, toCatalogItem } from './lib.mjs';
+
+test('posterFrame uses Claude pick only when valid', () => {
+  assert.equal(posterFrame({ poster_frame: 0 }), 0);
+  assert.equal(posterFrame({ poster_frame: 7 }), 1);
+  assert.equal(posterFrame(metaFromFileName('https://x.io/a.mp4')), 1);
+});
 
 test('slugify keeps a safe folder name', () => {
   assert.equal(slugify('Igreja São João: Cultos & Aulas!'), 'igreja-sao-joao-cultos-aulas');

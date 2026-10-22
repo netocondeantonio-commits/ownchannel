@@ -4,7 +4,7 @@ import { createServer } from 'node:http';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { networkInterfaces } from 'node:os';
 import { extname, join, resolve, sep } from 'node:path';
-import { describeVideo, grabFrame, metaFromFileName, parseChannelRequest, probeDuration, toCatalogItem } from './lib.mjs';
+import { describeVideo, grabFrame, metaFromFileName, parseChannelRequest, posterFrame, probeDuration, toCatalogItem } from './lib.mjs';
 
 // 8xxx often falls inside Windows' Hyper-V excluded port ranges (EACCES); 7070 is AnyDesk's.
 const PORT = Number(process.env.PORT || 4310);
@@ -20,7 +20,7 @@ const FRAME_POINTS = [0.1, 0.5, 0.85];
 const TYPES = { '.html': 'text/html; charset=utf-8', '.json': 'application/json', '.jpg': 'image/jpeg', '.png': 'image/png' };
 
 const readJson = async path => JSON.parse(await readFile(path, 'utf8').catch(() => 'null'));
-const posterUrl = (slug, id) => `${BASE_URL}/c/${slug}/${id}-1.jpg`;
+const posterUrl = (slug, file) => `${BASE_URL}/c/${slug}/${file}`;
 
 async function processVideo(spec, video, dir, existingCategories, warnings) {
   const id = createHash('sha1').update(video.url).digest('hex').slice(0, 10);
@@ -36,7 +36,8 @@ async function processVideo(spec, video, dir, existingCategories, warnings) {
       warnings.push(`AI could not describe ${video.url}; used the file name instead.`);
     }
   }
-  return toCatalogItem({ id, meta, durationSec, posterUrl: posterUrl(spec.slug, id), videoUrl: video.url, featured: false });
+  const poster = posterUrl(spec.slug, `${id}-${posterFrame(meta)}.jpg`);
+  return toCatalogItem({ id, meta, durationSec, posterUrl: poster, videoUrl: video.url, featured: false });
 }
 
 // Re-publishing only processes new URLs; videos already in the catalog keep their metadata.
@@ -50,7 +51,8 @@ async function buildChannel(spec) {
   for (const video of spec.videos) {
     const old = known.get(video.url);
     if (old) {
-      items.push({ ...old, images: { poster_16x9: posterUrl(spec.slug, old.id) } });
+      // Keep the chosen frame; only the host may have changed (PUBLIC_BASE_URL).
+      items.push({ ...old, images: { poster_16x9: posterUrl(spec.slug, old.images.poster_16x9.split('/').pop()) } });
       continue;
     }
     const categories = [...new Set(items.map(item => item.category))];

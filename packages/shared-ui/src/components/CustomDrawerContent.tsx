@@ -120,8 +120,8 @@ export default function CustomDrawerContent(props: DrawerContentComponentProps) 
 const drawerStyles = StyleSheet.create({
     drawerContainer: {
       flex: 1,
-      // Near-opaque: without a real backdrop blur, see-through text behind the menu reads as clutter
-      backgroundColor: 'rgba(10, 10, 16, 0.95)',
+      // Opaque: without a real backdrop blur, see-through text behind the menu reads as clutter (0.95 still ghosted)
+      backgroundColor: 'rgb(10, 10, 16)',
       borderEndWidth: scaledPixels(2),
       borderEndColor: colors.glassBorder,
     },
