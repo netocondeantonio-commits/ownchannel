@@ -1,3 +1,5 @@
+![OwnChannel](brand/ownchannel-banner-1920x720.png)
+
 # OwnChannel
 
 **Your own Fire TV channel in minutes.** Paste your video links, and Claude watches a few frames of each one and writes the titles, descriptions and home-screen rows. You get a branded TV app for Fire TV (Vega OS and Fire OS) from one codebase.
